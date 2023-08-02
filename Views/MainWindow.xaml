@@ -5,57 +5,62 @@
     xmlns:services="clr-namespace:WpfAppMvvm.Services"
     xmlns:viewmodels="clr-namespace:WpfAppMvvm.ViewModels"
     xmlns:wpf="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
-    Title="Window1"
-    Width="300"
-    Height="200">
+    Title="Registration"
+    Width="800"
+    Height="900"
+    WindowState="Maximized">
 
     <wpf:Grid Margin="0,0,0,49" DataContext="{wpf:Binding Students}">
         <wpf:Grid.RowDefinitions>
             <wpf:RowDefinition Height="Auto" />
             <wpf:RowDefinition Height="Auto" />
             <wpf:RowDefinition Height="Auto" />
-            <wpf:RowDefinition Height="Auto" />
+            <wpf:RowDefinition Height="800" />
             <wpf:RowDefinition Height="*" />
         </wpf:Grid.RowDefinitions>
         <wpf:Grid.ColumnDefinitions>
             <wpf:ColumnDefinition Width="Auto" />
-            <wpf:ColumnDefinition Width="*" />
+            <wpf:ColumnDefinition Width="257*" />
+            <ColumnDefinition Width="112*"/>
         </wpf:Grid.ColumnDefinitions>
         <wpf:TextBlock
+            Margin="0,10,0,10"
             HorizontalAlignment="Center"
-            wpf:Grid.Column="0"
             wpf:Grid.Row="0"
             Text="Name" />
         <wpf:TextBox
             Width="100"
-            HorizontalAlignment="Center"
+            Margin="10,10,0,10"
+            HorizontalAlignment="Left"
             wpf:Grid.Column="1"
             wpf:Grid.Row="0"
             Text="{wpf:Binding Student.Name,
             Mode=TwoWay}" />
         <wpf:TextBlock
+            Margin="0,10,0,10"
             HorizontalAlignment="Center"
-            wpf:Grid.Column="0"
             wpf:Grid.Row="1"
             Text="Age" />
         <wpf:TextBox
             Width="100"
-            HorizontalAlignment="Center"
+            Margin="10,10,0,10"
+            HorizontalAlignment="Left"
             wpf:Grid.Column="1"
             wpf:Grid.Row="1"
             Text="{wpf:Binding Student.Age,
             Mode=TwoWay}" />
         <wpf:Button
-            HorizontalAlignment="Right"
-            wpf:Grid.Column="0"
+            Margin="0,10,0,10"
+            HorizontalAlignment="Center"
             wpf:Grid.Row="2"
             Command="{wpf:Binding SubmitCommand}"
             Content="Submit" />
-        <wpf:ListView
+        <ListView
             Width="200"
+            Margin="269,10,45,10"
             wpf:Grid.Column="1"
             wpf:Grid.Row="3"
-            ItemsSource="{wpf:Binding Students}">
+            ItemsSource="{Binding}">
             <wpf:ListView.View>
                 <wpf:GridView>
                     <wpf:GridViewColumn
@@ -69,6 +74,6 @@
 
                 </wpf:GridView>
             </wpf:ListView.View>
-        </wpf:ListView>
+        </ListView>
     </wpf:Grid>
 </Window>

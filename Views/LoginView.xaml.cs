@@ -15,14 +15,16 @@ using System.Windows.Shapes;
 
 namespace WpfAppMvvm.Views
 {
-    /// <summary>
+/// <summary>
     /// Interaction logic for LoginView.xaml
-    /// </summary>
-    public partial class LoginView : UserControl
-    {
-        public LoginView()
-        {
-            InitializeComponent();
-        }
-    }
+/// </summary>
+public partial class LoginView : UserControl
+{
+public LoginView()
+{
+InitializeComponent();
+}
+
+
+}
 }

@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using WpfAppMvvm.Commands;
 using WpfAppMvvm.Models;
-
+using WpfAppMvvm.Views;
 
 namespace WpfAppMvvm.ViewModels
 {
@@ -39,7 +39,12 @@ namespace WpfAppMvvm.ViewModels
 
         private void LoggedIn(object parameter1, object parameter2)
         {
-            MessageBox.Show($"Logged in successfull as {parameter1} by password:{parameter2}");
+            if(parameter1!=null && parameter2!=null && parameter1.ToString()=="admin" && parameter2.ToString()=="1234")
+             {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+            }else
+                MessageBox.Show($"Log-in not successful as {parameter1} by password:{parameter2}." );
         }
     }
 }

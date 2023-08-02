@@ -12,15 +12,12 @@ namespace WpfAppMvvm
         {
             base.OnStartup(e);
 
-            MainWindow mainWindow = new MainWindow();
-            this.MainWindow = mainWindow;
-            mainWindow.Show();
-
-
-            //LoginView myUserControl = new LoginView();
-            //MainWindow mainWindow = new MainWindow();
-            //mainWindow.Content = myUserControl;
-            //mainWindow.Show();
+            LoginView myUserControl = new LoginView();
+            Window window = new Window();
+            window.Width = 400;
+            window.Height = 600;
+            window.Content = myUserControl;
+            window.Show();
 
         }
     }

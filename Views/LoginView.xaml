@@ -6,8 +6,8 @@
     xmlns:local="clr-namespace:WpfAppMvvm.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:WpfAppMvvm.ViewModels"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:Height="350"
+    d:Width="300"
     mc:Ignorable="d">
     <UserControl.DataContext>
         <viewmodels:LoginVM />
@@ -62,7 +62,7 @@
             Foreground="White">
             <Button.CommandParameter>
                 "{Binding  UserName}"
-                ,     "{Binding  Password}"
+                ,"{Binding  Password}"
             </Button.CommandParameter>
         </Button>
     </StackPanel>
