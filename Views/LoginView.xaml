@@ -1,0 +1,69 @@
+﻿<UserControl
+    x:Class="WpfAppMvvm.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfAppMvvm.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:WpfAppMvvm.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.DataContext>
+        <viewmodels:LoginVM />
+    </UserControl.DataContext>
+    <StackPanel Margin="50" Orientation="Vertical">
+        <TextBlock
+            Padding="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="25"
+            FontWeight="Bold"
+            Text="Login" />
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Margin="0,15"
+                HorizontalAlignment="Left"
+                Text="User Name" />
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Width="255"
+                Padding="0,5"
+                HorizontalAlignment="Left"
+                Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock
+                Grid.Row="2"
+                Margin="0,15"
+                HorizontalAlignment="Left"
+                Text="Password" />
+            <TextBox
+                Grid.Row="3"
+                Width="255"
+                Padding="0,5"
+                HorizontalAlignment="Left"
+                Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Button
+            x:Name="LoginBtn"
+            Width="250"
+            Height="35"
+            Margin="0,25"
+            Background="Black"
+            Command="{Binding LoginCommand}"
+            Content="Login"
+            Foreground="White">
+            <Button.CommandParameter>
+                "{Binding  UserName}"
+                ,     "{Binding  Password}"
+            </Button.CommandParameter>
+        </Button>
+    </StackPanel>
+</UserControl>
