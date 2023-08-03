@@ -102,6 +102,7 @@ class User
 Note that Each Command in this class, Handles operations of the window events.
 ### Bind the ViewModel to the View 
 - Now you can bind the ViewModel to the view, Using DataContext :
+  #### Binding in Xaml
   you can bind the VM to the view by setting the DataContext property of the view in C# or Xaml. like this:
 ```
 <UserControl.DataContext >
@@ -122,4 +123,32 @@ and bind the Buttons to Commands like this:
    </Button.CommandParameter>
  </Button>
 ```
+#### Binding in code:
+```
+public List<Student> Students { get; set; }
+
+public MainWindow()
+{
+    InitializeComponent();
+    Closing += MainWindow_Cllosing;
+    List<Student> Students = new List<Student>();
+    Students = new List<Student>
+    {
+        new Student("Dave", 20),
+        new Student("Bill", 24),
+        new Student("deri", 21))
+    };
+    DataContext = new StudentVM(Students);
+}
+```
+and in the listView in the Xaml :
+```
+<ListView  ItemsSource="{Binding Students}">
+     <ListView.View>
+         <GridView>
+             <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" />
+             <GridViewColumn  DisplayMemberBinding="{Binding Age}" Header="Age" />
+         </GridView>
+     </ListView.View>
+ </ListView>
 ```
