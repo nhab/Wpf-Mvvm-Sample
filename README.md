@@ -5,7 +5,9 @@ A WPF MVVM To log in and Enter People Data
 - Create a WPF Project in the Visual Studio
 - Check to have these Reference Added To your Project:
  PresentationCore, PresentationFramework, WindowsBase
-- Create (or use) your Main Window.xaml inside the Views folder in your project
+*** Create View
+- Create (or use) your Main View (MainWindow.xaml) inside the Views folder in your project
+*** Create Model
 - Create a "Models" Folder in your project and add a data model like this:
 ```
 class User
