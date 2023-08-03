@@ -1,5 +1,5 @@
 # WpfMvvm
-A WPF MVVM To log in and Enter People Data
+A WPF MVVM project To show how to log in and Enter People Data
 
 ## To create a WPF MVMM Project:
 - Create a WPF Project in the Visual Studio
