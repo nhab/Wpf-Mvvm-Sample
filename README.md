@@ -124,6 +124,7 @@ and bind the Buttons to Commands like this:
  </Button>
 ```
 #### Binding in code:
+in code behind of the window:
 ```
 public List<Student> Students { get; set; }
 
