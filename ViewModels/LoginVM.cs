@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using WpfAppMvvm.Commands;
 using WpfAppMvvm.Models;
@@ -10,11 +11,17 @@ namespace WpfAppMvvm.ViewModels
     public class LoginVM : ViewModelBase
     {
         private User user;
+       
         public ICommand LoginCommand { get; }
+        public ICommand CloseWindowCommand { get; }
+
+        public event EventHandler CloseRequested;
+
         public LoginVM()
         {
             user = new User();
             LoginCommand = new RelayCommand((param) => LoggedIn(user.UserName,user.Password));
+            CloseWindowCommand = new RelayCommand((param) => CloseWindow());
         }
 
         public string UserName
@@ -42,9 +49,17 @@ namespace WpfAppMvvm.ViewModels
             if(parameter1!=null && parameter2!=null && parameter1.ToString()=="admin" && parameter2.ToString()=="1234")
              {
                 MainWindow mainWindow = new MainWindow();
+                mainWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 mainWindow.Show();
-            }else
+                CloseWindow();
+            }
+            else
                 MessageBox.Show($"Log-in not successful as {parameter1} by password:{parameter2}." );
+        }
+
+        private void CloseWindow()
+        {
+            CloseRequested?.Invoke(this, EventArgs.Empty);
         }
     }
 }

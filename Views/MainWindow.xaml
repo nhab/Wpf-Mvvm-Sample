@@ -2,78 +2,78 @@
     x:Class="WpfAppMvvm.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:services="clr-namespace:WpfAppMvvm.Services"
     xmlns:viewmodels="clr-namespace:WpfAppMvvm.ViewModels"
     xmlns:wpf="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
     Title="Registration"
     Width="800"
-    Height="900"
+    Height="800"
+    HorizontalAlignment="Center"
     WindowState="Maximized">
 
-    <wpf:Grid Margin="0,0,0,49" DataContext="{wpf:Binding Students}">
-        <wpf:Grid.RowDefinitions>
-            <wpf:RowDefinition Height="Auto" />
-            <wpf:RowDefinition Height="Auto" />
-            <wpf:RowDefinition Height="Auto" />
-            <wpf:RowDefinition Height="800" />
-            <wpf:RowDefinition Height="*" />
-        </wpf:Grid.RowDefinitions>
-        <wpf:Grid.ColumnDefinitions>
-            <wpf:ColumnDefinition Width="Auto" />
-            <wpf:ColumnDefinition Width="257*" />
-            <ColumnDefinition Width="112*"/>
-        </wpf:Grid.ColumnDefinitions>
-        <wpf:TextBlock
+    <Grid Margin="0,0,0,49" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="800" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="257*" />
+            <ColumnDefinition Width="112*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Grid.Row="0"
             Margin="0,10,0,10"
             HorizontalAlignment="Center"
-            wpf:Grid.Row="0"
             Text="Name" />
-        <wpf:TextBox
+        <TextBox
+            Grid.Row="0"
+            Grid.Column="1"
             Width="100"
             Margin="10,10,0,10"
             HorizontalAlignment="Left"
-            wpf:Grid.Column="1"
-            wpf:Grid.Row="0"
-            Text="{wpf:Binding Student.Name,
-            Mode=TwoWay}" />
-        <wpf:TextBlock
+            Text="{Binding Student.Name, Mode=TwoWay}" />
+        <TextBlock
+            Grid.Row="1"
             Margin="0,10,0,10"
             HorizontalAlignment="Center"
-            wpf:Grid.Row="1"
             Text="Age" />
-        <wpf:TextBox
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="1"
             Width="100"
             Margin="10,10,0,10"
             HorizontalAlignment="Left"
-            wpf:Grid.Column="1"
-            wpf:Grid.Row="1"
-            Text="{wpf:Binding Student.Age,
-            Mode=TwoWay}" />
-        <wpf:Button
+            Text="{Binding Student.Age, Mode=TwoWay}" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
             Margin="0,10,0,10"
-            HorizontalAlignment="Center"
-            wpf:Grid.Row="2"
-            Command="{wpf:Binding SubmitCommand}"
+            HorizontalAlignment="Left"
+            Command="{Binding SubmitCommand}"
             Content="Submit" />
         <ListView
+            Grid.Row="3"
+            Grid.Column="1"
             Width="200"
-            Margin="269,10,45,10"
-            wpf:Grid.Column="1"
-            wpf:Grid.Row="3"
-            ItemsSource="{Binding}">
-            <wpf:ListView.View>
-                <wpf:GridView>
-                    <wpf:GridViewColumn
+            Margin="10,10,45,10"
+            HorizontalAlignment="Left"
+            ItemsSource="{Binding Students}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
                         Width="60"
-                        DisplayMemberBinding="{wpf:Binding Name}"
+                        DisplayMemberBinding="{Binding Name}"
                         Header="Name" />
-                    <wpf:GridViewColumn
+                    <GridViewColumn
                         Width="60"
-                        DisplayMemberBinding="{wpf:Binding Age}"
+                        DisplayMemberBinding="{Binding Age}"
                         Header="Age" />
 
-                </wpf:GridView>
-            </wpf:ListView.View>
+                </GridView>
+            </ListView.View>
         </ListView>
-    </wpf:Grid>
+    </Grid>
 </Window>

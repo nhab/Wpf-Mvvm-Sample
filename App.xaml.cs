@@ -14,9 +14,11 @@ namespace WpfAppMvvm
 
             LoginView myUserControl = new LoginView();
             Window window = new Window();
-            window.Width = 400;
+            window.Width = 600;
             window.Height = 600;
+            window.WindowStartupLocation= WindowStartupLocation.CenterScreen;
             window.Content = myUserControl;
+
             window.Show();
 
         }

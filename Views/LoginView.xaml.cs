@@ -12,19 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAppMvvm.ViewModels;
 
 namespace WpfAppMvvm.Views
 {
-/// <summary>
-    /// Interaction logic for LoginView.xaml
-/// </summary>
-public partial class LoginView : UserControl
-{
-public LoginView()
-{
-InitializeComponent();
-}
+    /// <summary>
+        /// Interaction logic for LoginView.xaml
+    /// </summary>
+    public partial class LoginView : UserControl
+    {
+        public LoginView()
+        {
+            InitializeComponent();
+            var viewModel = DataContext as LoginVM;
+            if (viewModel != null)
+            {
+                viewModel.CloseRequested += ViewModel_CloseRequested;
+            }
+        }
+        private void ViewModel_CloseRequested(object sender, EventArgs e)
+        {
+           (this.Parent as Window ).Close();
+        }
 
-
-}
+    }
 }

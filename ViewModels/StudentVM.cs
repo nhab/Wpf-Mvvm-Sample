@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using WpfAppMvvm.Commands;
@@ -49,10 +50,11 @@ namespace WpfAppMvvm.ViewModels
                 return _SubmitCommand;
             }
         }
-        public StudentVM()
+        public StudentVM(List<Student> students = null)
         {
             Student = new Student();
-            Students = new ObservableCollection<Student>();
+            if(students!=null)
+            Students = new ObservableCollection<Student>(students);
             Students.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Students_CollectionChanged);
         }
         //Whenever new item is added to the collection, am explicitly calling notify property changed  
