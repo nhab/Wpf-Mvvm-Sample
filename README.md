@@ -25,9 +25,10 @@ class User
     }
 ```
 - Create a CommandClass like this:
+  (It is nothing special . It is a class that implements the **ICommand** interface)
 
 ```
- public class RelayCommand : ICommand
+ public class RelayCommand: ICommand
     {   
         private readonly Action<object> _execute;
         private readonly Predicate<object> _canExecute;
