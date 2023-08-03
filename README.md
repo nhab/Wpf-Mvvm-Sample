@@ -9,7 +9,9 @@ It is a style of WPF programming in which there are 3 main parts to the project:
 
 3- The ViewModel which brings data from View to Model back and forth using binding.
 
-so binding is setting data from the Model into View and getting data from View into the model.
+The ViewModel contains the state of the view and the operations on it.
+
+so binding is setting data of the Model into View and getting data from View into the model.
 ## To create a WPF MVMM Project:
 - Create a WPF Project in the Visual Studio
 - Check to have these Reference Added To your Project:
