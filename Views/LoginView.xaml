@@ -8,11 +8,11 @@
     xmlns:viewmodels="clr-namespace:WpfAppMvvm.ViewModels"
     d:Height="350"
     d:Width="300"
-    mc:Ignorable="d">
-    <UserControl.DataContext>
+    mc:Ignorable="d" Height="357" Width="482">
+    <UserControl.DataContext >
         <viewmodels:LoginVM />
     </UserControl.DataContext>
-    <StackPanel Margin="50" Orientation="Vertical">
+    <StackPanel Margin="50,50,-22,20" Orientation="Vertical">
         <TextBlock
             Padding="10"
             HorizontalAlignment="Center"
