@@ -1,11 +1,11 @@
 # Wpf Mvvm Sample
-A WPF MVVM project To show how to log in and Enter People Data
+This is a WPF MVVM project To show how to log in and Enter People Data
 ## What is MVVM?
 It is a style of WPF programming in which there are 3 main parts to the project:
 1- The View is the User interface.it is a .xaml file
 2- The Model is Data. 
 3- The ViewModel which brings data from View to Model back and forth using binding.
-so binding is setting data from Model into View and getting data from View into model.
+so binding is setting data from Model into View and getting data from View into the model.
 ## To create a WPF MVMM Project:
 - Create a WPF Project in the Visual Studio
 - Check to have these Reference Added To your Project:
