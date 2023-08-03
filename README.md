@@ -11,7 +11,11 @@ It is a style of WPF programming in which there are 3 main parts to the project:
 
 The ViewModel contains the state of the view and the operations on it.
 
-so binding is setting data of the Model into View and getting data from View into the model.
+Binding is setting data of the Model into View and getting data from View into the model.
+
+ObservableCollection is a type of collection that provides built-in mechanisms 
+for notifying the UI of any changes made to the collection.
+
 ## To create a WPF MVMM Project:
 - Create a WPF Project in the Visual Studio
 - Check to have these Reference Added To your Project:
