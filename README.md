@@ -1,4 +1,4 @@
-# WpfMvvm
+# Wpf Mvvm Data entry
 A WPF MVVM project To show how to log in and Enter People Data
 
 ## To create a WPF MVMM Project:
