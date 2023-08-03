@@ -130,7 +130,6 @@ public List<Student> Students { get; set; }
 public MainWindow()
 {
     InitializeComponent();
-    Closing += MainWindow_Cllosing;
     List<Student> Students = new List<Student>();
     Students = new List<Student>
     {
