@@ -97,5 +97,25 @@ class User
   ```
 Note that Each Command in this class, Handles operations of the window events.
 
-
-  
+- Now you can bind the ViewModel to the view, Using DataContext :
+  you can bind the VM to the view by setting the DataContext property of the view in C# or Xaml. like this:
+```
+<UserControl.DataContext >
+    <viewmodels:LoginVM />
+</UserControl.DataContext>
+```
+  and to show bound value in a TextBox control, for example, You can use the **Binding** keyword, like this:
+```
+<TextBox  Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+```
+and bind the Buttons to Commands like this:
+(as you see, you can pass a parameter to the command)
+```
+<Button x:Name="LoginBtn" Command="{Binding LoginCommand}">
+   <Button.CommandParameter>
+       "{Binding  UserName}"
+       ,"{Binding  Password}"
+   </Button.CommandParameter>
+ </Button>
+```
+```
