@@ -5,9 +5,9 @@ A WPF MVVM To log in and Enter People Data
 - Create a WPF Project in the Visual Studio
 - Check to have these Reference Added To your Project:
  PresentationCore, PresentationFramework, WindowsBase
-*** Create View
+### Create View
 - Create (or use) your Main View (MainWindow.xaml) inside the Views folder in your project
-*** Create Model
+### Create Model
 - Create a "Models" Folder in your project and add a data model like this:
 ```
 class User
@@ -16,6 +16,7 @@ class User
         public string Password { get; set; }
     }
 ```
+### Create ViewModel
 - Create a ViewModels Folder in the project and add a ViewModelBase Class as the parent of all the ViewModels in the project:
 
 ```
@@ -26,8 +27,9 @@ class User
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
     }
 ```
+#### Create Command (to use in VM for functionalities of events)
 - Create a CommandClass like this:
-  (It is nothing special . It is a class that implements the **ICommand** interface)
+  (It is nothing special. It is a class that implements the **ICommand** interface)
 
 ```
  public class RelayCommand: ICommand
@@ -59,7 +61,7 @@ class User
             _execute(parameter);
         }
 ```
-- Create your ViewModel Classe in the ViewModes folder, like this:
+- Create your ViewModel Classe in the ViewModels folder, like this:
   Each of these ViewModels will be bound to a Window (view)
 ```
    public class LoginVM : ViewModelBase
@@ -98,7 +100,7 @@ class User
     }
   ```
 Note that Each Command in this class, Handles operations of the window events.
-
+### Bind the ViewModel to the View 
 - Now you can bind the ViewModel to the view, Using DataContext :
   you can bind the VM to the view by setting the DataContext property of the view in C# or Xaml. like this:
 ```
