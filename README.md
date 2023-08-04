@@ -4,11 +4,11 @@ This is a WPF MVVM project To show how to log in and Enter People Data
 ## What is MVVM?
 It is a style of WPF programming in which there are 3 main parts to the project:
 
-    1- The **View** is the User interface.it is a .xaml file
+    1- The "View" is the User interface.it is a .xaml file
 
-    2- The **Model** is the Data to be shown in the view or to be retrieved from the view. 
+    2- The "Model" is the Data to be shown in the view or to be retrieved from the view. 
 
-    3- The **ViewModel** which brings data from View to Model back and forth using binding.
+    3- The "ViewModel" which brings data from View to Model back and forth using binding.
 
     The ViewModel contains the state of the view and the operations on it.
 
