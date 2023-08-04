@@ -1,5 +1,6 @@
 # Wpf Mvvm Sample
 This is a WPF MVVM project To show how to log in and Enter People Data
+
 ## What is MVVM?
 It is a style of WPF programming in which there are 3 main parts to the project:
 
@@ -19,11 +20,13 @@ for notifying the UI of any changes made to the collection.
 ## To create a WPF MVMM Project:
 - Create a WPF Project in the Visual Studio
 - Check to have these Reference Added To your Project:
- PresentationCore, PresentationFramework, WindowsBase
+ **PresentationCore, PresentationFramework, WindowsBase**
+
 ### Create View
-- Create (or use) your Main View (MainWindow.xaml) inside the Views folder in your project
+- Create (or use) your Main View (MainWindow.xaml) in the **Views folder**
+  
 ### Create Model
-- Create a "Models" Folder in your project and add a data model like this:
+- Create  a data model class in the  **Models Folder**:
 ```
 class User
     {
@@ -32,18 +35,21 @@ class User
     }
 ```
 ### Create ViewModel
-- Create a ViewModels Folder in the project and add a ViewModelBase Class as the parent of all the ViewModels in the project:
+- Create a **ViewModelBase Class** in the  **ViewModels Folder**:
 
+(It will be the parent of all ViewModel classes)
 ```
-  public class ViewModelBase : INotifyPropertyChanged
+  public class ViewModelBase: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string property) =>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
     }
 ```
+
 #### Create Command (to use in VM for functionalities of events)
 - Create a CommandClass like this:
+
   (It is nothing special. It is a class that implements the **ICommand** interface)
 
 ```
@@ -77,9 +83,10 @@ class User
         }
 ```
 - Create your ViewModel Classe in the ViewModels folder, like this:
-  Each of these ViewModels will be bound to a Window (view)
+
+  (Each of these ViewModels will be bound to a Window )
 ```
-   public class LoginVM : ViewModelBase
+   public class LoginVM: ViewModelBase
     {
         private User user;
         public ICommand LoginCommand { get; }
@@ -114,21 +121,25 @@ class User
         }
     }
   ```
-Note that Each Command in this class, Handles operations of the window events.
+Each Command in this class, Handles operations of the window events.
+
 ### Bind the ViewModel to the View 
 - Now you can bind the ViewModel to the view, Using DataContext :
   #### Binding in Xaml
-  you can bind the VM to the view by setting the DataContext property of the view in C# or Xaml. like this:
+  you can bind the VM to the view by setting the DataContext property of the view in C# or Xaml:
 ```
 <UserControl.DataContext >
-    <viewmodels:LoginVM />
+    <viewmodels: LoginVM />
 </UserControl.DataContext>
 ```
-  and to show bound value in a TextBox control, for example, You can use the **Binding** keyword, like this:
+and to show the bound value in a TextBox control.
+
+for example, You can use the **Binding** keyword:
 ```
 <TextBox  Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 ```
 and bind the Buttons to Commands like this:
+
 (as you see, you can pass a parameter to the command)
 ```
 <Button x:Name="LoginBtn" Command="{Binding LoginCommand}">
@@ -139,7 +150,8 @@ and bind the Buttons to Commands like this:
  </Button>
 ```
 #### Binding in code:
-in code behind of the window:
+
+In the "code behind" of the window:
 ```
 public List<Student> Students { get; set; }
 
