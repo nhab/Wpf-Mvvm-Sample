@@ -14,9 +14,6 @@ It is a style of WPF programming in which there are 3 main parts to the project:
 
 Binding is setting data of the Model to the View and getting data from View into the model.
 
-ObservableCollection is a type of collection that provides built-in mechanisms 
-for notifying the UI of any changes made to the collection.
-
 ## To create a WPF MVMM Project:
 - Create a WPF Project in the Visual Studio
 - Check to have these Reference Added To your Project:
@@ -46,7 +43,7 @@ class User
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
     }
 ```
-The OnPropertyChanged method will be used in the "set" method of properties of viewModels , to reflect changes:
+The OnPropertyChanged method will be used in the "set" method of properties of ViewModel, to reflect changes:
 ```
  public class StudentVM: ViewModelBase
     {
@@ -88,7 +85,8 @@ The OnPropertyChanged method will be used in the "set" method of properties of v
 ```
 As you can see, The **ObservableCollection** is used instead of the **List**.
 
-ObservableCollection has a **CollectionChanged** event Handler to be able to notify others of its own changes.
+ObservableCollection has a **CollectionChanged** event Handler to be able to notify the UI of any changes made to the collection.
+
 ### Create Command (to use in VM for functionalities of events)
 - Create a CommandClass like this:
 
