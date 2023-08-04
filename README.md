@@ -89,7 +89,7 @@ The OnPropertyChanged method will be used in the "set" method of properties of v
 As you can see, The **ObservableCollection** is used instead of the **List**.
 
 ObservableCollection has a **CollectionChanged** event Handler to be able to notify others of its own changes.
-#### Create Command (to use in VM for functionalities of events)
+### Create Command (to use in VM for functionalities of events)
 - Create a CommandClass like this:
 
   (It is nothing special. It is a class that implements the **ICommand** interface)
