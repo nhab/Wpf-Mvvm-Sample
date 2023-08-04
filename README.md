@@ -40,7 +40,7 @@ class User
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string property) =>
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
     }
 ```
 The OnPropertyChanged method will be used in the "set" method of properties of ViewModel, to reflect changes:
