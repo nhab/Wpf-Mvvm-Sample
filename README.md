@@ -1,14 +1,29 @@
-# WpfMvvm
-A WPF MVVM project To show how to log in and Enter People Data
+# Wpf Mvvm Sample
+This is a WPF MVVM project To show how to log in and Enter People Data
+
+## What is MVVM?
+It is a style of WPF programming in which there are 3 main parts to the project:
+
+    1- The "View" is the User interface.it is a .xaml file
+
+    2- The "Model" is the Data to be shown in the view or to be retrieved from the view. 
+
+    3- The "ViewModel" which brings data from View to Model back and forth using binding.
+
+    The ViewModel contains the state of the view and the operations on it.
+
+Binding is setting data of the Model to the View and getting data from View into the model.
 
 ## To create a WPF MVMM Project:
 - Create a WPF Project in the Visual Studio
 - Check to have these Reference Added To your Project:
- PresentationCore, PresentationFramework, WindowsBase
+ **PresentationCore, PresentationFramework, WindowsBase**
+
 ### Create View
-- Create (or use) your Main View (MainWindow.xaml) inside the Views folder in your project
+- Create (or use) your Main View (MainWindow.xaml) in the **Views folder**
+  
 ### Create Model
-- Create a "Models" Folder in your project and add a data model like this:
+- Create  a data model class in the  **Models Folder**:
 ```
 class User
     {
@@ -17,18 +32,64 @@ class User
     }
 ```
 ### Create ViewModel
-- Create a ViewModels Folder in the project and add a ViewModelBase Class as the parent of all the ViewModels in the project:
+- Create a **ViewModelBase Class** in the  **ViewModels Folder**:
 
+(It will be the parent of all ViewModel classes)
 ```
-  public class ViewModelBase : INotifyPropertyChanged
+  public class ViewModelBase: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string property) =>
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
     }
 ```
-#### Create Command (to use in VM for functionalities of events)
+The OnPropertyChanged method will be used in the "set" method of properties of ViewModel, to reflect changes:
+```
+ public class StudentVM: ViewModelBase
+    {
+        private Student _student;
+        private ObservableCollection<Student> _students;
+        public Student Student
+        {
+            get => _student;
+            }
+            set{
+                _student = value;
+                OnPropertyChanged("Student");
+            }
+        }
+        public ObservableCollection<Student> Students
+        {
+            get =>return _students;
+            
+            set {
+                _students = value;
+                OnPropertyChanged("Students");
+            }
+        }
+
+        public StudentVM(List<Student> students = null)
+        {
+            Student = new Student();
+            if(students!=null)
+            Students = new ObservableCollection<Student>(students);
+            Students.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Students_CollectionChanged);
+        }
+
+        //Whenever a new item is added to the collection, am explicitly calling notify the property changed  
+        void Students_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            OnPropertyChanged("Students");
+        }
+...
+```
+As you can see, The **ObservableCollection** is used instead of the **List**.
+
+ObservableCollection has a **CollectionChanged** event Handler to be able to notify the UI of any changes made to the collection.
+
+### Create Command (to use in VM for functionalities of events)
 - Create a CommandClass like this:
+
   (It is nothing special. It is a class that implements the **ICommand** interface)
 
 ```
@@ -61,10 +122,10 @@ class User
             _execute(parameter);
         }
 ```
-- Create your ViewModel Classe in the ViewModels folder, like this:
-  Each of these ViewModels will be bound to a Window (view)
+- Add a Command to a ViewModel, like this:
+  (Each of these ViewModels will be bound to a Window )
 ```
-   public class LoginVM : ViewModelBase
+   public class LoginVM: ViewModelBase
     {
         private User user;
         public ICommand LoginCommand { get; }
@@ -99,20 +160,26 @@ class User
         }
     }
   ```
-Note that Each Command in this class, Handles operations of the window events.
+Each Command in the ViewModel, Handles operations of the window events.
+
+for example, you can write your login logic inside the LoggedIn method above.
 ### Bind the ViewModel to the View 
 - Now you can bind the ViewModel to the view, Using DataContext :
-  you can bind the VM to the view by setting the DataContext property of the view in C# or Xaml. like this:
+  #### Binding in Xaml
+  you can bind the VM to the view by setting the DataContext property of the view in C# or Xaml:
 ```
 <UserControl.DataContext >
-    <viewmodels:LoginVM />
+    <viewmodels: LoginVM />
 </UserControl.DataContext>
 ```
-  and to show bound value in a TextBox control, for example, You can use the **Binding** keyword, like this:
+and to show the bound value in a TextBox control.
+
+for example, You can use the **Binding** keyword:
 ```
 <TextBox  Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 ```
 and bind the Buttons to Commands like this:
+
 (as you see, you can pass a parameter to the command)
 ```
 <Button x:Name="LoginBtn" Command="{Binding LoginCommand}">
@@ -122,4 +189,33 @@ and bind the Buttons to Commands like this:
    </Button.CommandParameter>
  </Button>
 ```
+#### Binding in code:
+
+In the "code behind" of the window:
+```
+public List<Student> Students { get; set; }
+
+public MainWindow()
+{
+    InitializeComponent();
+    List<Student> Students = new List<Student>();
+    Students = new List<Student>
+    {
+        new Student("Dave", 20),
+        new Student("Bill", 24),
+        new Student("deri", 21))
+    };
+    DataContext = new StudentVM(Students);
+}
+```
+and in the listView in the Xaml :
+```
+<ListView  ItemsSource="{Binding Students}">
+     <ListView.View>
+         <GridView>
+             <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" />
+             <GridViewColumn  DisplayMemberBinding="{Binding Age}" Header="Age" />
+         </GridView>
+     </ListView.View>
+ </ListView>
 ```
