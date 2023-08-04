@@ -46,7 +46,49 @@ class User
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
     }
 ```
+The OnPropertyChanged method will be used in the "set" method of properties of viewModels , to reflect changes:
+```
+ public class StudentVM: ViewModelBase
+    {
+        private Student _student;
+        private ObservableCollection<Student> _students;
+        public Student Student
+        {
+            get => _student;
+            }
+            set{
+                _student = value;
+                OnPropertyChanged("Student");
+            }
+        }
+        public ObservableCollection<Student> Students
+        {
+            get =>return _students;
+            
+            set {
+                _students = value;
+                OnPropertyChanged("Students");
+            }
+        }
 
+        public StudentVM(List<Student> students = null)
+        {
+            Student = new Student();
+            if(students!=null)
+            Students = new ObservableCollection<Student>(students);
+            Students.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Students_CollectionChanged);
+        }
+
+        //Whenever a new item is added to the collection, am explicitly calling notify the property changed  
+        void Students_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            OnPropertyChanged("Students");
+        }
+...
+```
+As you can see, The **ObservableCollection** is used instead of the **List**.
+
+ObservableCollection has a **CollectionChanged** event Handler to be able to notify others of its own changes.
 #### Create Command (to use in VM for functionalities of events)
 - Create a CommandClass like this:
 
