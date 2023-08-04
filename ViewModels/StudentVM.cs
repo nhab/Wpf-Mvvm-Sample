@@ -16,22 +16,17 @@ namespace WpfAppMvvm.ViewModels
 
         public Student Student
         {
-            get
-            {
-                return _student;
-            }
-            set
-            {
+            get=> _student;
+            
+            set{
                 _student = value;
                 OnPropertyChanged("Student");
             }
         }
         public ObservableCollection<Student> Students
         {
-            get
-            {
-                return _students;
-            }
+            get=>_students;
+            
             set
             {
                 _students = value;
