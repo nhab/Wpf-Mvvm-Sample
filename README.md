@@ -124,8 +124,7 @@ ObservableCollection has a **CollectionChanged** event Handler to be able to not
             _execute(parameter);
         }
 ```
-- Create your ViewModel Classe in the ViewModels folder, like this:
-
+- Add a Command to a ViewModel, like this:
   (Each of these ViewModels will be bound to a Window )
 ```
    public class LoginVM: ViewModelBase
@@ -163,8 +162,9 @@ ObservableCollection has a **CollectionChanged** event Handler to be able to not
         }
     }
   ```
-Each Command in this class, Handles operations of the window events.
+Each Command in the ViewModel, Handles operations of the window events.
 
+for example, you can write your login logic inside the LoggedIn method above.
 ### Bind the ViewModel to the View 
 - Now you can bind the ViewModel to the view, Using DataContext :
   #### Binding in Xaml
