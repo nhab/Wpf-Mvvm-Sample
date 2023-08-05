@@ -32,6 +32,8 @@ class User
 }
 ```
 ### Create ViewModel
+ViewModel **Sends data from Model to View** by setting the value of a property and calling OnPropertyChanged
+ViewModel **Sends data from View to Model** by Getting the value from parameters of the RelayCommand and setting them to properties
 - Create a **ViewModelBase Class** in the  **ViewModels Folder**:
 
 (It will be the parent of all ViewModel classes)
