@@ -4,7 +4,7 @@ This is a WPF MVVM project To show how to log in and Enter People Data
 ## What is MVVM?
 It is a style of WPF programming in which there are 3 main parts to the project:
 
-    1- The "View" is the User interface.it is a .xaml file
+    1- The "View" is the User interface. It consists of .xaml files
 
     2- The "Model" is the Data to be shown in the view or to be retrieved from the view. 
 
@@ -16,8 +16,9 @@ Binding is setting data of the Model to the View and getting data from View into
 
 ## To create a WPF MVMM Project:
 - Create a WPF Project in the Visual Studio
-- Check to have these Reference Added To your Project:
- **PresentationCore, PresentationFramework, WindowsBase**
+- Check these References to be added to the project:
+  
+     **PresentationCore, PresentationFramework, WindowsBase**
 
 ### Create View
 - Create (or use) your Main View (MainWindow.xaml) in the **Views folder**
@@ -26,12 +27,17 @@ Binding is setting data of the Model to the View and getting data from View into
 - Create  a data model class in the  **Models Folder**:
 ```
 class User
-    {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-    }
+{
+    public string UserName { get; set; }
+    public string Password { get; set; }
+}
 ```
 ### Create ViewModel
+ViewModel **Sends data from Model to View** by setting the value of a property and calling OnPropertyChanged, in its methods
+
+ViewModel **Sends data from View to Model** by Getting the value from parameters of the RelayCommand and setting them to properties 
+
+or by setting the DataContext of the view to the viewModel and binding a "property" of the view element to a property of the ViewModel
 - Create a **ViewModelBase Class** in the  **ViewModels Folder**:
 
 (It will be the parent of all ViewModel classes)
