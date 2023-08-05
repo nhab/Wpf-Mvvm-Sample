@@ -33,11 +33,11 @@ class User
 }
 ```
 ### Create ViewModel
-ViewModel **Sends data from Model to View** by setting the value of a property and calling OnPropertyChanged, in the methods of the viewModel
+ViewModel **Sends data from Model to View** by setting the value of a property and calling OnPropertyChanged, in its methods
 
 ViewModel **Sends data from View to Model** by Getting the value from parameters of the RelayCommand and setting them to properties 
 
-or by setting the DataContext of the view to the viewModel and binding a property of the view element to a property of the ViewModel
+or by setting the DataContext of the view to the viewModel and binding a "property" of the view element to a property of the ViewModel
 - Create a **ViewModelBase Class** in the  **ViewModels Folder**:
 
 (It will be the parent of all ViewModel classes)
