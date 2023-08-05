@@ -16,8 +16,9 @@ Binding is setting data of the Model to the View and getting data from View into
 
 ## To create a WPF MVMM Project:
 - Create a WPF Project in the Visual Studio
-- Check to have these Reference Added To your Project:
- **PresentationCore, PresentationFramework, WindowsBase**
+- Check these References to be added to the project:
+  
+     **PresentationCore, PresentationFramework, WindowsBase**
 
 ### Create View
 - Create (or use) your Main View (MainWindow.xaml) in the **Views folder**
