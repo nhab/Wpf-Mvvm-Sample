@@ -6,10 +6,10 @@
     xmlns:local="clr-namespace:WpfAppMvvm.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:WpfAppMvvm.ViewModels"
-    Width="482"
-    Height="357"
-    d:Height="350"
-    d:Width="300"
+    Width="500"
+    Height="450"
+    d:Height="450"
+    d:Width="500"
     mc:Ignorable="d">
     <UserControl.DataContext>
         <viewmodels:LoginVM />
@@ -61,7 +61,8 @@
             Background="Black"
             Command="{Binding LoginCommand}"
             Content="Login"
-            Foreground="White">
+            Foreground="White"
+            ToolTip="( sends data from the vieww to model via parameters of the RelayCommand )">
             <Button.CommandParameter>
                 "{Binding  UserName}"
                 ,"{Binding  Password}"

@@ -20,6 +20,8 @@ namespace WpfAppMvvm.ViewModels
         public LoginVM()
         {
             user = new User();
+            user.UserName = "admin"; // default value
+            user.Password = "1234";
             LoginCommand = new RelayCommand((param) => LoggedIn(user.UserName,user.Password));
             CloseWindowCommand = new RelayCommand((param) => CloseWindow());
         }
