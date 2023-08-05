@@ -26,10 +26,10 @@ Binding is setting data of the Model to the View and getting data from View into
 - Create  a data model class in the  **Models Folder**:
 ```
 class User
-    {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-    }
+{
+    public string UserName { get; set; }
+    public string Password { get; set; }
+}
 ```
 ### Create ViewModel
 - Create a **ViewModelBase Class** in the  **ViewModels Folder**:
