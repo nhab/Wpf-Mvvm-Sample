@@ -6,7 +6,7 @@ This is a WPF MVVM project To show how to log in and Enter People Data
 2. [Creating an MVVM Project](#creating-MVMM-Project)
 3. [ViewModel](#viewmodel)
 4. [Command](#Command)
-5. Binding the ViewModel to the View (#Binding)
+5. [Binding the ViewModel to the View](#Binding)
 
 <a id="WhatisMVVM"></a>
 ## What is MVVM?
