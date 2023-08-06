@@ -2,8 +2,8 @@
 This is a WPF MVVM project To show how to log in and Enter People Data
 
 # Table of Contents
-[What is MVVM?](## What is MVVM?)
-[Creating a MVVM Project](## To create a WPF MVMM Project:)
+1. [What is MVVM?](## What is MVVM?)
+2. [Creating a MVVM Project](## To create a WPF MVMM Project:)
 
 
 ## What is MVVM?
