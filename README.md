@@ -2,10 +2,10 @@
 This is a WPF MVVM project To show how to log in and Enter People Data
 
 # Table of Contents
-1. [What is MVVM?](## What is MVVM?)
-2. [Creating a MVVM Project](## To create a WPF MVMM Project:)
+1. [What is MVVM?](#WhatisMVVM)
+2. [Creating an MVVM Project](#creating-MVMM-Project)
 
-
+<a id="WhatisMVVM"></a>
 ## What is MVVM?
 It is a style of WPF programming in which there are 3 main parts to the project:
 
@@ -19,6 +19,7 @@ It is a style of WPF programming in which there are 3 main parts to the project:
 
 Binding is setting data of the Model to the View and getting data from View into the model.
 
+ <a id="#creating-MVMM-Project></a>
 ## To create a WPF MVMM Project:
 - Create a WPF Project in the Visual Studio
 - Check these References to be added to the project:
