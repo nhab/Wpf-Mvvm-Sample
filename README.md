@@ -96,7 +96,7 @@ ObservableCollection has a **CollectionChanged** event Handler to be able to not
 ### Create Command (to use in VM for functionalities of events)
 - Create a CommandClass like this:
 
-  (It is nothing special. It is a class that implements the **ICommand** interface)
+  (It is just a class, implementing the **ICommand** interface)
 
 ```
  public class RelayCommand: ICommand
