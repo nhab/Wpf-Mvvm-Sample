@@ -4,8 +4,10 @@ This is a WPF MVVM project To show how to log in and Enter People Data
 # Table of Contents
 1. [What is MVVM?](#WhatisMVVM)
 2. [Creating an MVVM Project](#creating-MVMM-Project)
-  [Creating ViewModel](#Creaing-viewmodel)
-   
+3. [ViewModel](#viewmodel)
+4. [Command](#Command)
+5. Binding the ViewModel to the View (#Binding)
+
 <a id="WhatisMVVM"></a>
 ## What is MVVM?
 It is a style of WPF programming in which there are 3 main parts to the project:
@@ -39,7 +41,7 @@ class User
     public string Password { get; set; }
 }
 ```
-<a id="Creaing-viewmodel"></a>
+<a id="viewmodel"></a>
 ### Create ViewModel
 ViewModel **Sends data from Model to View** by setting the value of a property and calling OnPropertyChanged, in its methods
 
@@ -101,6 +103,7 @@ As you can see, The **ObservableCollection** is used instead of the **List**.
 
 ObservableCollection has a **CollectionChanged** event Handler to be able to notify the UI of any changes made to the collection.
 
+<a id="Command"></a>
 ### Create Command (to use in VM for functionalities of events)
 - Create a CommandClass like this:
 
@@ -177,6 +180,8 @@ ObservableCollection has a **CollectionChanged** event Handler to be able to not
 Each Command in the ViewModel, Handles operations of the window events.
 
 for example, you can write your login logic inside the LoggedIn method above.
+
+<a id="Binding"></a>
 ### Bind the ViewModel to the View 
 - Now you can bind the ViewModel to the view, Using DataContext :
   #### Binding in Xaml
