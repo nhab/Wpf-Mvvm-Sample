@@ -1,6 +1,11 @@
 # Wpf Mvvm Sample
 This is a WPF MVVM project To show how to log in and Enter People Data
 
+# Table of Contents
+[What is MVVM?](## What is MVVM?)
+[Creating a MVVM Project](## To create a WPF MVMM Project:)
+
+
 ## What is MVVM?
 It is a style of WPF programming in which there are 3 main parts to the project:
 
