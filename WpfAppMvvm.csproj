@@ -60,9 +60,6 @@
     <Compile Include="ViewModels\StudentVM.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="Views\TwoWayBindingSample.xaml.cs">
-      <DependentUpon>TwoWayBindingSample.xaml</DependentUpon>
-    </Compile>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -82,10 +79,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\TwoWayBindingSample.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Student.cs" />

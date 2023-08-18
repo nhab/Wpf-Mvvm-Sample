@@ -39,8 +39,8 @@ namespace WpfAppMvvm.ViewModels
             {
                 if (_SubmitCommand == null)
                 {
-                    _SubmitCommand = new RelayCommand(param => this.Submit(),
-                        null);
+                    _SubmitCommand = new RelayCommand(param => this.Submit()
+                    , (_student) => { return ((Student != null)&&(Student as Student).Name != null) && ((Student as Student).Age != 0); });
                 }
                 return _SubmitCommand;
             }
@@ -52,7 +52,7 @@ namespace WpfAppMvvm.ViewModels
             Students = new ObservableCollection<Student>(students);
             Students.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(Students_CollectionChanged);
         }
-        //Whenever new item is added to the collection, am explicitly calling notify property changed  
+        //Whenever new item is added to the collection, it explicitly calls notify property changed  
         void Students_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             OnPropertyChanged("Students");
