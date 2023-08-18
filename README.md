@@ -139,6 +139,8 @@ ObservableCollection has a **CollectionChanged** event Handler to be able to not
             _execute(parameter);
         }
 ```
+(canExecute parameter of the second constructor,is a condition. it is a boolean function which specifiy in which condition the command is enabled and can be executed)
+
 - Add a Command to a ViewModel, like this:
   (Each of these ViewModels will be bound to a Window )
 ```
